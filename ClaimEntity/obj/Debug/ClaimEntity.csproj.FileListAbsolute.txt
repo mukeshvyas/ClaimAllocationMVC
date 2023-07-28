@@ -1,0 +1,11 @@
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\bin\Debug\ClaimEntity.dll.config
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\bin\Debug\ClaimEntity.dll
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\bin\Debug\ClaimEntity.pdb
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\bin\Debug\EntityFramework.dll
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\bin\Debug\EntityFramework.xml
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\obj\Debug\ClaimEntity.dll
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\obj\Debug\ClaimEntity.pdb
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\bin\Debug\ClaimModel.dll
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\bin\Debug\ClaimModel.pdb
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\obj\Debug\ClaimEntity.csproj.CoreCompileInputs.cache
+D:\Mukesh vyas\Self document\ClaimAllocationMVC\ClaimEntity\obj\Debug\ClaimEntity.csproj.CopyComplete

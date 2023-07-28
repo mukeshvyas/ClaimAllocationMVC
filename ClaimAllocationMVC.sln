@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimAllocationMVC", "ClaimAllocationMVC\ClaimAllocationMVC.csproj", "{0B9C9EA3-D029-49A9-9BAC-5C06AD023F32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimAllocationAPI", "ClaimAllocationAPI\ClaimAllocationAPI.csproj", "{80DA4BDE-B6A6-4797-B435-02F1573A7BB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimEntity", "ClaimEntity\ClaimEntity.csproj", "{577E1CCF-DB63-42C1-8718-0CE09A4A7C0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimModel", "ClaimModel\ClaimModel.csproj", "{C33C9811-D98A-4CB5-8760-C23A48EF5638}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B9C9EA3-D029-49A9-9BAC-5C06AD023F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9C9EA3-D029-49A9-9BAC-5C06AD023F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9C9EA3-D029-49A9-9BAC-5C06AD023F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9C9EA3-D029-49A9-9BAC-5C06AD023F32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80DA4BDE-B6A6-4797-B435-02F1573A7BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80DA4BDE-B6A6-4797-B435-02F1573A7BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80DA4BDE-B6A6-4797-B435-02F1573A7BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80DA4BDE-B6A6-4797-B435-02F1573A7BB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{577E1CCF-DB63-42C1-8718-0CE09A4A7C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{577E1CCF-DB63-42C1-8718-0CE09A4A7C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{577E1CCF-DB63-42C1-8718-0CE09A4A7C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{577E1CCF-DB63-42C1-8718-0CE09A4A7C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C33C9811-D98A-4CB5-8760-C23A48EF5638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33C9811-D98A-4CB5-8760-C23A48EF5638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33C9811-D98A-4CB5-8760-C23A48EF5638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33C9811-D98A-4CB5-8760-C23A48EF5638}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

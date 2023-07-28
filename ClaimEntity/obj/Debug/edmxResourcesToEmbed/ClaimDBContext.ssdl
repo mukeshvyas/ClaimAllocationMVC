@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlgoZyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Claim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProviderName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ClaimAmount" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="AllowedAmount" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="PaidAmount" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ClaimStatusId" Type="int" />
+    <Property Name="LastComment" Type="nvarchar(max)" />
+    <Property Name="ClientId" Type="bigint" />
+    <Property Name="ClaimNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ClaimCommentHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="CommentedBy" Type="bigint" />
+    <Property Name="ClaimId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ClaimDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimId" Type="bigint" />
+    <Property Name="CPTHCPC" Type="nvarchar" MaxLength="100" />
+    <Property Name="AllowedAmount" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="PaidAmount" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="ClaimStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimStatus" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ClaimWorkflow">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimId" Type="bigint" />
+    <Property Name="AssignerId" Type="bigint" />
+    <Property Name="AssigneeId" Type="bigint" />
+    <Property Name="ClaimStatusId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="DateOfCreation" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="500" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DateOfCreation" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="RoleId" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <Function Name="GetClaimlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="AlgoZyModelStoreContainer">
+    <EntitySet Name="Claim" EntityType="Self.Claim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClaimCommentHistory" EntityType="Self.ClaimCommentHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClaimDetail" EntityType="Self.ClaimDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClaimStatus" EntityType="Self.ClaimStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClaimWorkflow" EntityType="Self.ClaimWorkflow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

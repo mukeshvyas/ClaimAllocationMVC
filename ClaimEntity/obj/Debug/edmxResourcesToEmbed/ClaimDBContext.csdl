@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlgoZyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Claim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AllowedAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PaidAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ClaimStatusId" Type="Int32" />
+    <Property Name="LastComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClientId" Type="Int64" />
+    <Property Name="ClaimNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ClaimCommentHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommentedBy" Type="Int64" />
+    <Property Name="ClaimId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ClaimDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimId" Type="Int64" />
+    <Property Name="CPTHCPC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AllowedAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PaidAmount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="ClaimStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ClaimWorkflow">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimId" Type="Int64" />
+    <Property Name="AssignerId" Type="Int64" />
+    <Property Name="AssigneeId" Type="Int64" />
+    <Property Name="ClaimStatusId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfCreation" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DateOfCreation" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="RoleId" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="AlgoZyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Claims" EntityType="Self.Claim" />
+    <EntitySet Name="ClaimCommentHistories" EntityType="Self.ClaimCommentHistory" />
+    <EntitySet Name="ClaimDetails" EntityType="Self.ClaimDetail" />
+    <EntitySet Name="ClaimStatus" EntityType="Self.ClaimStatu" />
+    <EntitySet Name="ClaimWorkflows" EntityType="Self.ClaimWorkflow" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <FunctionImport Name="GetClaimlist" ReturnType="Collection(AlgoZyModel.GetClaimlist_Result)" />
+  </EntityContainer>
+  <ComplexType Name="GetClaimlist_Result">
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ClaimNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="patientName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ProviderName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ClaimStatus" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="AllowedAmount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PaidAmount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="LastComment" Nullable="true" />
+    <Property Type="String" Name="AssignedTo" Nullable="true" MaxLength="500" />
+  </ComplexType>
+</Schema>
